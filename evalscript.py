@@ -46,7 +46,7 @@ def dataloader_evaluate(dataset_name, label):
       predictions.extend(preds.cpu().tolist())
       actual_labels.extend(labels.cpu().tolist())
     # computing macro f1
-    lang_accuracies[lang_code] = f"{clf_metrics.compute(predictions=predictions, references=actual_labels, average='macro')['f1']*100:.2f}"
+    lang_accuracies[lang_code] = f"{clf_metrics.compute(predictions=predictions, references=actual_labels)['accuracy']*100:.2f}"
 
   return lang_accuracies
 
